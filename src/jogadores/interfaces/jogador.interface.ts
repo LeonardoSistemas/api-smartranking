@@ -4,6 +4,6 @@ export interface Jogador{
     readonly email : string;
     nome : string;
     ranking: string;
-    posicao: number;
+    posicaoRanking: number;
     urlFotoJogador: string;
 }
