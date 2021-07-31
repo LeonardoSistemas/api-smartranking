@@ -14,7 +14,6 @@ export class JogadoresController {
     @UsePipes(ValidationPipe)
     async criarJogador(
         @Body() criarJogadorDto: CriarJogadorDto) : Promise<Jogador> {
-
         return await this.jogadoresServices.criarJogador(criarJogadorDto)
     }
 
@@ -23,26 +22,21 @@ export class JogadoresController {
     async atualizarJogador(
         @Body() atualizarJogadorDto: AtualizarJogadorDto, 
         @Param('_id', JogadoresValidacaoParametrosPipe) _id : string) : Promise<void> {
-
         await this.jogadoresServices.atualizarJogador(atualizarJogadorDto, _id)
     }
 
     @Get()
     async consultarJogadores(): Promise<Jogador[] | Jogador> {
-
         return this.jogadoresServices.consultarTodosJogadores()
     }
 
     @Get('/:_id')
     async consultarJogadoresPeloId(@Param('_id', JogadoresValidacaoParametrosPipe) _id: string): Promise<Jogador[] | Jogador> {
-
         return this.jogadoresServices.consultarJogadorPeloId(_id)
-
     }
 
     @Delete('/:_id')
     async deletarJogadores(@Param('_id', JogadoresValidacaoParametrosPipe) _id: string): Promise<void> {
-
         return this.jogadoresServices.deletarJogador(_id)
     }
 }
