@@ -13,5 +13,5 @@ export class CriarCategoriaDto{
 
     @IsArray()
     @ArrayMinSize(1)
-    enventos : Array<Evento>
+    eventos : Array<Evento>
 }

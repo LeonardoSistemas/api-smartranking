@@ -5,7 +5,7 @@ export interface Categoria extends Document{
 
     readonly categoria : string
     descricao : string
-    enventos : Array<Evento>
+    eventos : Array<Evento>
     jogadores: Array<Jogador>
 }
 
