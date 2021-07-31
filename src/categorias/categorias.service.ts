@@ -21,4 +21,9 @@ export class CategoriasService {
         const categoriaCriada = new this.categoriaModel(criarCategoriaDto)
         return await categoriaCriada.save()
     }
+
+    async consultarTodasCategorias() : Promise<Array<Categoria>> {
+        
+        return await this.categoriaModel.find().exec()
+    }
 }
