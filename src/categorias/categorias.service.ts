@@ -58,8 +58,6 @@ export class CategoriasService {
         const jogadorJaCadastradoNaCategoria = await this.categoriaModel.find({categoria}).where('colJogadores').in(idJogador).exec()
 
         await this.jogadoresServices.consultarJogadorPeloId(idJogador)
-
-         
         
         if(!categoriaEncontrada)
             throw new NotFoundException(`Categoria ${categoria} não foi encontrada`)
