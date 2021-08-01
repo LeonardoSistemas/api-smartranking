@@ -2,17 +2,15 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JogadoresModule } from './jogadores/jogadores.module';
 import { CategoriasModule } from './categorias/categorias.module';
-
+import { DesafiosModule } from './desafios/desafios.module';
 
 @Module({
-  imports: [JogadoresModule, MongooseModule.forRoot('mongodb://localhost:27017/smartranking', 
-  { 
-    useNewUrlParser: true, 
-    useCreateIndex:true, 
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  }
-  ), CategoriasModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost:27017/smartranking',
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }),
+    JogadoresModule,
+    CategoriasModule,
+    DesafiosModule],
   controllers: [],
   providers: [],
 })
