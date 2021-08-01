@@ -1,9 +1,10 @@
 import { IsNotEmpty } from 'class-validator'
 
-export class AtualizarJogadorDto{
+export class AtualizarJogadorDto {
 
     @IsNotEmpty()
-    readonly telefoneCelular : string;    
+    readonly telefoneCelular: string;
+    
     @IsNotEmpty()
-    readonly nome : string;
+    readonly nome: string;
 }
