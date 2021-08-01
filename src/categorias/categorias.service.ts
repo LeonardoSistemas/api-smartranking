@@ -47,4 +47,21 @@ export class CategoriasService {
         
         await this.categoriaModel.findOneAndUpdate({categoria}, {$set: atualizarCategoriaDto}).exec()
     }
+
+    async atribuirCategoriaJogador(params : string[]) : Promise<void>{
+
+        const categoria = params['categoria']
+        const idJogador = params['idJogador']
+
+        const categoriaEncontrada = await this.categoriaModel.findOne({categoria}).exec()
+        //const jogadorJaCadastrado
+        
+        if(!categoriaEncontrada)
+            throw new NotFoundException(`Categoria ${categoria} não foi encontrada`)
+
+        categoriaEncontrada.jogadores.push(idJogador)
+
+        await this.categoriaModel.findOneAndUpdate({categoria}, {$set: categoriaEncontrada}).exec()
+        
+    }
 }
